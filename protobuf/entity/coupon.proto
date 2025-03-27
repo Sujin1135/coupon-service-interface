@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+option go_package = "github.com/Sujin1135/coupon-service-interface/protobuf/entity";
+
+package io.coupon.service;
+
+import "google/protobuf/timestamp.proto";
+
+message Campaign {
+  string id = 1;
+  string name = 2;
+  int64 issue_amount = 3;
+  google.protobuf.Timestamp issued_at = 4;
+  google.protobuf.Timestamp expires_at = 5;
+  repeated IssuedCoupon issued_coupons = 6;
+  google.protobuf.Timestamp created_at = 7;
+  google.protobuf.Timestamp modified_at = 8;
+}
+
+message IssuedCoupon {
+  string id = 1;
+  string coupon_id = 2;
+  string code = 3;
+  google.protobuf.Timestamp created_at = 4;
+  google.protobuf.Timestamp modified_at = 5;
+}

@@ -1,0 +1,85 @@
+syntax = "proto3";
+
+option go_package = "github.com/Sujin1135/coupon-service-interface/protobuf/service";
+
+package io.coupon.service;
+
+import "coupon.proto";
+import "errors.proto";
+import "google/protobuf/timestamp.proto";
+
+service GreetService {
+  rpc CreateCampaign(CreateCampaignRequest) returns (CreateCampaignResponse);
+  rpc IssueCoupon(IssueCouponRequest) returns (IssueCouponResponse);
+  rpc GetCampaign(GetCampaignRequest) returns (GetCampaignResponse);
+}
+
+message CreateCampaignRequest {
+  string name = 1;
+  int64 amount = 2;
+  google.protobuf.Timestamp issued_at = 3;
+  google.protobuf.Timestamp expires_at = 4;
+}
+
+message CreateCampaignResponse {
+  oneof value {
+    Data data = 1;
+    Error error = 2;
+  }
+
+  message Data {
+    Campaign campaign = 1;
+  }
+
+  message Error {
+    oneof error {
+      BadRequestError bad_request = 1;
+      InternalError internal_problem = 2;
+    }
+  }
+}
+
+message IssueCouponRequest {
+  string campaign_id = 1;
+  string user_id = 2;
+}
+
+message IssueCouponResponse {
+  oneof value {
+    Data data = 1;
+    Error error = 2;
+  }
+
+  message Data {
+    bool result = 1;
+  }
+
+  message Error {
+    oneof error {
+      NotFoundError not_found = 1;
+      BadRequestError bad_request = 2;
+      InternalError internal_problem = 3;
+    }
+  }
+}
+
+message GetCampaignRequest {
+  string name = 1;
+}
+
+message GetCampaignResponse {
+  oneof value {
+    Data data = 1;
+    Error error = 2;
+  }
+
+  message Data {
+    Campaign campaign = 1;
+  }
+
+  message Error {
+    oneof error {
+      NotFoundError not_found = 1;
+    }
+  }
+}

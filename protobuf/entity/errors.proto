@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option go_package = "github.com/Sujin1135/coupon-service-interface/protobuf/entity";
+
+message NotFoundError {
+  optional string message = 1;
+}
+
+message BadRequestError {
+  optional string message = 1;
+}
+
+message InternalError {
+  optional string message = 1;
+}
