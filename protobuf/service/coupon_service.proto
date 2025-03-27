@@ -4,8 +4,8 @@ option go_package = "github.com/Sujin1135/coupon-service-interface/protobuf/serv
 
 package io.coupon.service;
 
-import "coupon.proto";
-import "errors.proto";
+import "protobuf/entity/coupon.proto";
+import "protobuf/entity/errors.proto";
 import "google/protobuf/timestamp.proto";
 
 service GreetService {
