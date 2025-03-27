@@ -309,7 +309,7 @@ func (*IssueCouponResponse_Error_) isIssueCouponResponse_Value() {}
 
 type GetCampaignRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Name          string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -344,9 +344,9 @@ func (*GetCampaignRequest) Descriptor() ([]byte, []int) {
 	return file_protobuf_service_coupon_service_proto_rawDescGZIP(), []int{4}
 }
 
-func (x *GetCampaignRequest) GetName() string {
+func (x *GetCampaignRequest) GetId() string {
 	if x != nil {
-		return x.Name
+		return x.Id
 	}
 	return ""
 }
@@ -848,9 +848,9 @@ const file_protobuf_service_coupon_service_proto_rawDesc = "" +
 	"badRequest\x12;\n" +
 	"\x10internal_problem\x18\x03 \x01(\v2\x0e.InternalErrorH\x00R\x0finternalProblemB\a\n" +
 	"\x05errorB\a\n" +
-	"\x05value\"(\n" +
-	"\x12GetCampaignRequest\x12\x12\n" +
-	"\x04name\x18\x01 \x01(\tR\x04name\"\xa9\x02\n" +
+	"\x05value\"$\n" +
+	"\x12GetCampaignRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\"\xa9\x02\n" +
 	"\x13GetCampaignResponse\x12A\n" +
 	"\x04data\x18\x01 \x01(\v2+.io.coupon.service.GetCampaignResponse.DataH\x00R\x04data\x12D\n" +
 	"\x05error\x18\x02 \x01(\v2,.io.coupon.service.GetCampaignResponse.ErrorH\x00R\x05error\x1a?\n" +
